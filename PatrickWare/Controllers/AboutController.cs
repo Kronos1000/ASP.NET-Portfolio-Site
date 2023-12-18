@@ -5,8 +5,10 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
+using System.Drawing;
 using PatrickWare.Data;
 using PatrickWare.Models;
+using System.Text.RegularExpressions;
 
 namespace PatrickWare.Controllers
 {
@@ -28,7 +30,7 @@ namespace PatrickWare.Controllers
         }
 
         // GET: About/Details/5
-        public async Task<IActionResult> Details(string id)
+        public async Task<IActionResult> Details(int? id)
         {
             if (id == null || _context.About == null)
             {
@@ -56,19 +58,42 @@ namespace PatrickWare.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Headings,Description,ImageFileName,roundedBorder,ImageWidth,ImageHeight")] About about)
+        public async Task<IActionResult> Create([Bind("Id,Headings,Description,ImageFileName,roundedBorder,ImageWidth,ImageHeight")] About about, IFormFile? imageFile)
         {
             if (ModelState.IsValid)
             {
+                if (imageFile != null && imageFile.Length > 0)
+                {
+                    var fileName = Path.GetFileName(imageFile.FileName);
+                    var filePath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", "ProjectImages", fileName);
+
+                    using (var stream = new FileStream(filePath, FileMode.Create))
+                    {
+                        await imageFile.CopyToAsync(stream);
+                    }
+
+                    about.ImageFileName = fileName;
+
+                    // Make sure to dispose of the FileStream before attempting to read the image
+                    using (var imageStream = new FileStream(filePath, FileMode.Open, FileAccess.Read))
+                    using (var image = Image.FromStream(imageStream))
+                    {
+                        about.ImageWidth = image.Width;
+                        about.ImageHeight = image.Height;
+                    }
+                }
+                about.Description= Regex.Replace(about.Description, @"(\r\n?|\n){2,}", "\n\n\n");
                 _context.Add(about);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
+
             return View(about);
         }
 
+
         // GET: About/Edit/5
-        public async Task<IActionResult> Edit(string id)
+        public async Task<IActionResult> Edit(int? id)
         {
             if (id == null || _context.About == null)
             {
@@ -88,7 +113,7 @@ namespace PatrickWare.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(string id, [Bind("Id,Headings,Description,ImageFileName,roundedBorder,ImageWidth,ImageHeight")] About about)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,Headings,Description,ImageFileName,roundedBorder,ImageWidth,ImageHeight")] About about)
         {
             if (id != about.Id)
             {
@@ -119,7 +144,7 @@ namespace PatrickWare.Controllers
         }
 
         // GET: About/Delete/5
-        public async Task<IActionResult> Delete(string id)
+        public async Task<IActionResult> Delete(int? id)
         {
             if (id == null || _context.About == null)
             {
@@ -139,7 +164,7 @@ namespace PatrickWare.Controllers
         // POST: About/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> DeleteConfirmed(string id)
+        public async Task<IActionResult> DeleteConfirmed(int id)
         {
             if (_context.About == null)
             {
@@ -155,7 +180,7 @@ namespace PatrickWare.Controllers
             return RedirectToAction(nameof(Index));
         }
 
-        private bool AboutExists(string id)
+        private bool AboutExists(int id)
         {
           return (_context.About?.Any(e => e.Id == id)).GetValueOrDefault();
         }

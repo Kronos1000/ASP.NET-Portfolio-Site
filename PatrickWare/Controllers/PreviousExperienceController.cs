@@ -5,6 +5,9 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
+using System.Drawing;
+using Microsoft.AspNetCore.Http;
+
 using PatrickWare.Data;
 using PatrickWare.Models;
 
@@ -56,16 +59,39 @@ namespace PatrickWare.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("ProjectID,ProjectTitle,ShortProjectDescription,ProjectDescription,ProjectPurpose,ProjectImageFileName,DevLanguages,GitRepoLink,roundedBorder,ImageWidth,ImageHeight")] PreviousExperience previousExperience)
+        public async Task<IActionResult> Create([Bind("ProjectID,ProjectTitle,ShortProjectDescription,ProjectDescription,ProjectPurpose,ProjectImageFileName,DevLanguages,GitRepoLink,roundedBorder,ImageWidth,ImageHeight")] PreviousExperience previousExperience, IFormFile ProjectImageFile)
         {
             if (ModelState.IsValid)
             {
+                if (ProjectImageFile != null && ProjectImageFile.Length > 0)
+                {
+                    var fileName = Path.GetFileName(ProjectImageFile.FileName);
+                    var filePath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", "ProjectImages", fileName);
+
+                    using (var stream = new FileStream(filePath, FileMode.Create))
+                    {
+                        await ProjectImageFile.CopyToAsync(stream);
+                    }
+
+                    previousExperience.ProjectImageFileName = fileName;
+
+                    // Make sure to dispose of the FileStream before attempting to read the image
+                    using (var imageStream = new FileStream(filePath, FileMode.Open, FileAccess.Read))
+                    using (var image = Image.FromStream(imageStream))
+                    {
+                        previousExperience.ImageWidth = image.Width;
+                        previousExperience.ImageHeight = image.Height;
+                    }
+                }
+
                 _context.Add(previousExperience);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
+
             return View(previousExperience);
         }
+
 
         // GET: PreviousExperience/Edit/5
         public async Task<IActionResult> Edit(int? id)

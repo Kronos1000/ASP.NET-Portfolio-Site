@@ -10,7 +10,7 @@
 <hr />
 <div class="row">
     <div class="col-md-4">
-        <form asp-action="Create">
+        <form asp-action="Create" enctype="multipart/form-data">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
                 <label asp-for="ProjectTitle" class="control-label"></label>
@@ -32,11 +32,27 @@
                 <input asp-for="ProjectPurpose" class="form-control" />
                 <span asp-validation-for="ProjectPurpose" class="text-danger"></span>
             </div>
+
+
+
+
+            <label> Upload Image</label>
+            <br />
+            <span style="font-size: smaller;"> *Required</span>
+
+            <br />
             <div class="form-group">
+                <input type="file" name="ProjectImageFile" class="form-control-file" />
+                <br />
+
+            </div>
+
+
+         @*    <div class="form-group">
                 <label asp-for="ProjectImageFileName" class="control-label"></label>
                 <input asp-for="ProjectImageFileName" class="form-control" />
                 <span asp-validation-for="ProjectImageFileName" class="text-danger"></span>
-            </div>
+            </div> *@
             <div class="form-group">
                 <label asp-for="DevLanguages" class="control-label"></label>
                 <input asp-for="DevLanguages" class="form-control" />
@@ -49,7 +65,15 @@
             </div>
             <div class="form-group">
                 <label asp-for="roundedBorder" class="control-label"></label>
-                <input asp-for="roundedBorder" class="form-control" />
+
+                <select class="form-control" asp-for="roundedBorder">
+                    @*  <option value="">Select</option> *@
+                    <option value="true">Yes</option>
+                    <option value="false">No</option>
+                </select>
+
+
+
                 <span asp-validation-for="roundedBorder" class="text-danger"></span>
             </div>
             <div class="form-group">

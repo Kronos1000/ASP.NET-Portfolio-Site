@@ -5,6 +5,22 @@
       "PackagePath": "staticwebassets\\PatrickWare.bundle.scp.css"
     },
     {
+      "Id": "D:\\Github\\ASP.NET-Portfolio-Site\\PatrickWare\\wwwroot\\ProjectImages\\SIT Wallpaper.png",
+      "PackagePath": "staticwebassets\\ProjectImages\\SIT Wallpaper.png"
+    },
+    {
+      "Id": "D:\\Github\\ASP.NET-Portfolio-Site\\PatrickWare\\wwwroot\\ProjectImages\\Sequence 02.Still001.bmp",
+      "PackagePath": "staticwebassets\\ProjectImages\\Sequence 02.Still001.bmp"
+    },
+    {
+      "Id": "D:\\Github\\ASP.NET-Portfolio-Site\\PatrickWare\\wwwroot\\ProjectImages\\download.jfif",
+      "PackagePath": "staticwebassets\\ProjectImages\\download.jfif"
+    },
+    {
+      "Id": "D:\\Github\\ASP.NET-Portfolio-Site\\PatrickWare\\wwwroot\\ProjectImages\\patrick17Github.png",
+      "PackagePath": "staticwebassets\\ProjectImages\\patrick17Github.png"
+    },
+    {
       "Id": "D:\\Github\\ASP.NET-Portfolio-Site\\PatrickWare\\wwwroot\\css\\site.css",
       "PackagePath": "staticwebassets\\css\\site.css"
     },

@@ -1,8 +1,112 @@
 ﻿@{
     ViewData["Title"] = "Home Page";
 }
+@model IEnumerable<PatrickWare.Models.About>
+<style>
+    .text-paragraph {
+        max-width: 100%;
+        white-space: pre-line; /* Preserve spaces and line breaks */
+    }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
-</div>
+    .pageData {
+        text-align: center;
+        padding: 20px;
+    }
+</style>
+
+@foreach (var item in Model)
+{
+    <div class="container">
+        @if (User.Identity.IsAuthenticated && User.IsInRole("Admin"))
+        {
+            <br />
+            <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-primary buttons-100">Edit Page Content</a>
+            <a asp-action="Delete" asp-route-id="@item.Id" class="btn btn-danger" style="width:100%">Erase landing page image</a>
+        }
+        <div class="pageData"></div>
+        <div class="row">
+            @if (item.Headings != null)
+            {
+                <br />
+                <center>
+                    <h1>@item.Headings</h1>
+                </center>
+            }
+
+            @if (item.Description != null)
+            {
+                <div class="col-md-6" style="padding-inline-start: 20px">
+                    <center>
+                        <br />
+
+
+                        @if (item.roundedBorder == true)
+                        {
+
+
+                            @if (item.ImageWidth <= item.ImageHeight)
+                            {
+                                <img src="/ProjectImages/@item.ImageFileName" alt="Missing Image" class="img-fluid rounded-circle mx-auto d-block" style="width: 600px; height: 600px;" />
+                            }
+                            else if (item.ImageWidth >= item.ImageHeight)
+                            {
+                                <img src="/ProjectImages/@item.ImageFileName" alt="Missing Image" class="img-fluid rounded-circle mx-auto d-block" style="width: 600px; height: 350px;" />
+                            }
+                            else if (item.ImageWidth == item.ImageHeight) // Square image
+                            {
+                                <img src="/ProjectImages/@item.ImageFileName" alt="Missing Image" class="img-fluid rounded-circle mx-auto d-block" style="width: 700px; height: 700px;" />
+                            }
+                        }
+
+
+
+                        @if (item.roundedBorder == false)
+                        {
+
+
+                            @if (item.ImageWidth <= item.ImageHeight)
+                            {
+                                <img src="/ProjectImages/@item.ImageFileName" alt="Missing Image" class="img-fluid rounded  mx-auto d-block" style="width: 600px; height: 600px;" />
+                            }
+                            else if (item.ImageWidth >= item.ImageHeight)
+                            {
+                                <img src="/ProjectImages/@item.ImageFileName" alt="Missing Image" class="img-fluid rounded  mx-auto d-block" style="width: 600px; height: 350px;" />
+                            }
+                            else if (item.ImageWidth == item.ImageHeight) // Square image
+                            {
+                                <img src="/ProjectImages/@item.ImageFileName" alt="Missing Image" class="img-fluid rounded  mx-auto d-block" style="width: 700px; height: 700px;" />
+                            }
+                        }
+
+
+
+
+
+                    </center>
+                </div>
+            }
+
+            @if (item.ImageFileName != null)
+            {
+                <div class="col-md-6" style="padding-inline-start: 20px">
+                    <br />
+                    <center>
+                        <p class="text-paragraph" style="max-width: @item.ImageWidth > item.ImageHeight ? '100%' : 'initial';">@item.Description </p>
+                        <br />
+                    </center>
+                </div>
+            }
+
+            @if (item.ImageFileName == null)
+            {
+                <div>
+                    <center>
+                        <br />
+                        <p class="text-paragraph">@item.Description</p>
+                        <br />
+                    </center>
+                </div>
+            }
+        </div>
+    </div>
+}

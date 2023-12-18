@@ -4,7 +4,7 @@
     <TargetFramework>net6.0</TargetFramework>
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
-    <UserSecretsId>aspnet-PatrickWare-f5e10be6-4dd4-4bd7-87b7-b298d6bac44e</UserSecretsId>
+    <UserSecretsId>aspnet-PatrickWare-a5870733-d301-4ce5-af89-4fe67e0ed875</UserSecretsId>
   </PropertyGroup>
 
   <ItemGroup>

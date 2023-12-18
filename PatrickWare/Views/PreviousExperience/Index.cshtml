@@ -7,83 +7,32 @@
 <h1>Index</h1>
 
 <p>
-    <a asp-action="Create">Create New</a>
+    <a asp-action="Create" class="btn btn-primary buttons-100" >Create New</a>
+
 </p>
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.ProjectTitle)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.ShortProjectDescription)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.ProjectDescription)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.ProjectPurpose)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.ProjectImageFileName)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.DevLanguages)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.GitRepoLink)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.roundedBorder)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.ImageWidth)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.ImageHeight)
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.ProjectTitle)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.ShortProjectDescription)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.ProjectDescription)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.ProjectPurpose)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.ProjectImageFileName)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.DevLanguages)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.GitRepoLink)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.roundedBorder)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.ImageWidth)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.ImageHeight)
-            </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.ProjectID">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.ProjectID">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.ProjectID">Delete</a>
-            </td>
-        </tr>
+<div class="row">
+@foreach (var item in Model)
+{
+ 
+        <div class="col-md-4">
+            <div class="card mb-4">
+                @if (item.ImageWidth > item.ImageHeight)
+                {
+                    <img src="/ProjectImages/@item.ProjectImageFileName" class="card-img-top" alt="Product Image" style="width:100%">
+                }
+                else
+                {
+                    <img src="/ProjectImages/@item.ProjectImageFileName" class="card-img-top" alt="Product Image" style="width:100%; max-height:500px;">
+                    <!-- Set max-height to your desired value for portrait images -->
+                }
+
+                <div class="card-body">
+                    <h5 class="card-title">@item.ProjectTitle</h5>
+                    <p class="card-text">@item.ShortProjectDescription</p>
+                    <a href="@Url.Action("Details", new { id = item.ProjectID })" class="btn btn-primary buttons-100" style="width:100%">Learn More</a>
+                </div>
+            </div>
+        </div>
+    
 }
-    </tbody>
-</table>
+</div>
