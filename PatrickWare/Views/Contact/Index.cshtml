@@ -55,10 +55,6 @@
         .contact-info-item .icon {
             margin-bottom: 10px;
         }
-
-        .contact-form {
-            width: 100%;
-        }
     </style>
 </head>
 
@@ -66,7 +62,7 @@
 <section class="contact-area">
     <div class="container">
         <div class="row">
-            
+            <div class="col-lg-7">
                 <div class="contact-form">
                     <!-- Use the Html.BeginForm helper to create the form and bind it to the model -->
                     @using (Html.BeginForm("SendEmail", "Contact", FormMethod.Post))
@@ -74,8 +70,7 @@
                         <div class="row">
                             <div class="col-lg-12">
                                 <div class="section-title">
-                                    <h2 class="title">Get In touch</h2>
-                                    <p>Please fill out the form below, and I will get in touch with you as soon as possible. </p>
+                                    <h2 class="title">Contact us</h2>
                                 </div>
                             </div>
                             <div class="col-md-12">
@@ -114,7 +109,7 @@
                         </div>
                     }
                 </div>
-            </>
+            </div>
             <div class="col-lg-5">
                 <div class="contact-info-wrapper">
 
@@ -128,13 +123,24 @@
                                 <br />
 
                                 <div class="content">
-                    
-                                    <h4> Email Address</h4>
-                                    <p> Patrick.ware1998@outlook.com</p>
-
+                                <br />
+                                    <h4>Email</h4>
+                                    <p>  <a href="mailto:patrick.ware1998@outlook.com"> patrick.ware1998@outlook.com</a></p>
 
                                     <h4> Mobile</h4>
-                                    <p> 0204 014 9448</p>
+                                    <p><a href="tel:+642040149448"> 0204 014 9448</a></p>
+
+
+                                    <h4> LinkedIn</h4>
+                                    <p>  <a href="https://www.linkedin.com/in/patrick-ware-102a65282/?originalSubdomain=nz"> Contact me on LinkedIn</a></p>
+                                        
+                                       
+                                    </>
+
+                                    
+
+
+
                                 </div>
                             </div>
 

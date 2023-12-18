@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "LJ8bxseJQ1Sh/16w/jVxYzhK9N9LBZDUP2cH2tQ/utg=",
+  "Hash": "fMAA7a6WXcQAZ0O1w/QxjtUig8oVB1LMaPrh9bKwwRU=",
   "Source": "PatrickWare",
   "BasePath": "_content/PatrickWare",
   "Mode": "Default",
@@ -2335,6 +2335,25 @@
       "OriginalItemSpec": "wwwroot\\lib\\jquery-validation-unobtrusive\\LICENSE.txt"
     },
     {
+      "Identity": "D:\\Github\\ASP.NET-Portfolio-Site\\PatrickWare\\wwwroot\\ProjectImages\\38-9014-0322976-00_18Dec (3).CSV",
+      "SourceId": "PatrickWare",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\Github\\ASP.NET-Portfolio-Site\\PatrickWare\\wwwroot\\",
+      "BasePath": "_content/PatrickWare",
+      "RelativePath": "ProjectImages/38-9014-0322976-00_18Dec (3).CSV",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\ProjectImages\\38-9014-0322976-00_18Dec (3).CSV"
+    },
+    {
       "Identity": "D:\\Github\\ASP.NET-Portfolio-Site\\PatrickWare\\wwwroot\\ProjectImages\\download.jfif",
       "SourceId": "PatrickWare",
       "SourceType": "Discovered",
@@ -2392,6 +2411,25 @@
       "OriginalItemSpec": "wwwroot\\ProjectImages\\IMG_6603_edit_dark.jpg"
     },
     {
+      "Identity": "D:\\Github\\ASP.NET-Portfolio-Site\\PatrickWare\\wwwroot\\ProjectImages\\Patrick.png",
+      "SourceId": "PatrickWare",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\Github\\ASP.NET-Portfolio-Site\\PatrickWare\\wwwroot\\",
+      "BasePath": "_content/PatrickWare",
+      "RelativePath": "ProjectImages/Patrick.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\ProjectImages\\Patrick.png"
+    },
+    {
       "Identity": "D:\\Github\\ASP.NET-Portfolio-Site\\PatrickWare\\wwwroot\\ProjectImages\\patrick17Github.png",
       "SourceId": "PatrickWare",
       "SourceType": "Discovered",
@@ -2409,6 +2447,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\ProjectImages\\patrick17Github.png"
+    },
+    {
+      "Identity": "D:\\Github\\ASP.NET-Portfolio-Site\\PatrickWare\\wwwroot\\ProjectImages\\portrait-white-man-isolated.jpg",
+      "SourceId": "PatrickWare",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\Github\\ASP.NET-Portfolio-Site\\PatrickWare\\wwwroot\\",
+      "BasePath": "_content/PatrickWare",
+      "RelativePath": "ProjectImages/portrait-white-man-isolated.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\ProjectImages\\portrait-white-man-isolated.jpg"
     },
     {
       "Identity": "D:\\Github\\ASP.NET-Portfolio-Site\\PatrickWare\\wwwroot\\ProjectImages\\Sequence 02.Still001.bmp",

@@ -5,12 +5,20 @@
       "PackagePath": "staticwebassets\\PatrickWare.bundle.scp.css"
     },
     {
+      "Id": "D:\\Github\\ASP.NET-Portfolio-Site\\PatrickWare\\wwwroot\\ProjectImages\\38-9014-0322976-00_18Dec (3).CSV",
+      "PackagePath": "staticwebassets\\ProjectImages\\38-9014-0322976-00_18Dec (3).CSV"
+    },
+    {
       "Id": "D:\\Github\\ASP.NET-Portfolio-Site\\PatrickWare\\wwwroot\\ProjectImages\\IMG_5071.JPG",
       "PackagePath": "staticwebassets\\ProjectImages\\IMG_5071.JPG"
     },
     {
       "Id": "D:\\Github\\ASP.NET-Portfolio-Site\\PatrickWare\\wwwroot\\ProjectImages\\IMG_6603_edit_dark.jpg",
       "PackagePath": "staticwebassets\\ProjectImages\\IMG_6603_edit_dark.jpg"
+    },
+    {
+      "Id": "D:\\Github\\ASP.NET-Portfolio-Site\\PatrickWare\\wwwroot\\ProjectImages\\Patrick.png",
+      "PackagePath": "staticwebassets\\ProjectImages\\Patrick.png"
     },
     {
       "Id": "D:\\Github\\ASP.NET-Portfolio-Site\\PatrickWare\\wwwroot\\ProjectImages\\SIT Wallpaper.png",
@@ -27,6 +35,10 @@
     {
       "Id": "D:\\Github\\ASP.NET-Portfolio-Site\\PatrickWare\\wwwroot\\ProjectImages\\patrick17Github.png",
       "PackagePath": "staticwebassets\\ProjectImages\\patrick17Github.png"
+    },
+    {
+      "Id": "D:\\Github\\ASP.NET-Portfolio-Site\\PatrickWare\\wwwroot\\ProjectImages\\portrait-white-man-isolated.jpg",
+      "PackagePath": "staticwebassets\\ProjectImages\\portrait-white-man-isolated.jpg"
     },
     {
       "Id": "D:\\Github\\ASP.NET-Portfolio-Site\\PatrickWare\\wwwroot\\css\\site.css",
