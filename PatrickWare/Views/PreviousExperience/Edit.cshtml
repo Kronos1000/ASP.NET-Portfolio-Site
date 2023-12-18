@@ -1,0 +1,79 @@
+﻿@model PatrickWare.Models.PreviousExperience
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+<h4>PreviousExperience</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="ProjectID" />
+            <div class="form-group">
+                <label asp-for="ProjectTitle" class="control-label"></label>
+                <input asp-for="ProjectTitle" class="form-control" />
+                <span asp-validation-for="ProjectTitle" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ShortProjectDescription" class="control-label"></label>
+                <input asp-for="ShortProjectDescription" class="form-control" />
+                <span asp-validation-for="ShortProjectDescription" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ProjectDescription" class="control-label"></label>
+                <input asp-for="ProjectDescription" class="form-control" />
+                <span asp-validation-for="ProjectDescription" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ProjectPurpose" class="control-label"></label>
+                <input asp-for="ProjectPurpose" class="form-control" />
+                <span asp-validation-for="ProjectPurpose" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ProjectImageFileName" class="control-label"></label>
+                <input asp-for="ProjectImageFileName" class="form-control" />
+                <span asp-validation-for="ProjectImageFileName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DevLanguages" class="control-label"></label>
+                <input asp-for="DevLanguages" class="form-control" />
+                <span asp-validation-for="DevLanguages" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="GitRepoLink" class="control-label"></label>
+                <input asp-for="GitRepoLink" class="form-control" />
+                <span asp-validation-for="GitRepoLink" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="roundedBorder" class="control-label"></label>
+                <input asp-for="roundedBorder" class="form-control" />
+                <span asp-validation-for="roundedBorder" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ImageWidth" class="control-label"></label>
+                <input asp-for="ImageWidth" class="form-control" />
+                <span asp-validation-for="ImageWidth" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ImageHeight" class="control-label"></label>
+                <input asp-for="ImageHeight" class="form-control" />
+                <span asp-validation-for="ImageHeight" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

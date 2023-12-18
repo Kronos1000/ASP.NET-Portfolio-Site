@@ -1,0 +1,89 @@
+﻿@model IEnumerable<PatrickWare.Models.PreviousExperience>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.ProjectTitle)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ShortProjectDescription)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ProjectDescription)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ProjectPurpose)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ProjectImageFileName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DevLanguages)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.GitRepoLink)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.roundedBorder)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ImageWidth)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ImageHeight)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.ProjectTitle)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ShortProjectDescription)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ProjectDescription)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ProjectPurpose)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ProjectImageFileName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DevLanguages)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.GitRepoLink)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.roundedBorder)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ImageWidth)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ImageHeight)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.ProjectID">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.ProjectID">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.ProjectID">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
