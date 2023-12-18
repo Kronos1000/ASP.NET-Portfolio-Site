@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "fMAA7a6WXcQAZ0O1w/QxjtUig8oVB1LMaPrh9bKwwRU=",
+  "Hash": "A3AVqubL2BTj+7ucjXsGTyeFJqRqtjK5KBn7MVoPiSU=",
   "Source": "PatrickWare",
   "BasePath": "_content/PatrickWare",
   "Mode": "Default",
@@ -2335,25 +2335,6 @@
       "OriginalItemSpec": "wwwroot\\lib\\jquery-validation-unobtrusive\\LICENSE.txt"
     },
     {
-      "Identity": "D:\\Github\\ASP.NET-Portfolio-Site\\PatrickWare\\wwwroot\\ProjectImages\\38-9014-0322976-00_18Dec (3).CSV",
-      "SourceId": "PatrickWare",
-      "SourceType": "Discovered",
-      "ContentRoot": "D:\\Github\\ASP.NET-Portfolio-Site\\PatrickWare\\wwwroot\\",
-      "BasePath": "_content/PatrickWare",
-      "RelativePath": "ProjectImages/38-9014-0322976-00_18Dec (3).CSV",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Primary",
-      "AssetMergeBehavior": "PreferTarget",
-      "AssetMergeSource": "",
-      "RelatedAsset": "",
-      "AssetTraitName": "",
-      "AssetTraitValue": "",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\ProjectImages\\38-9014-0322976-00_18Dec (3).CSV"
-    },
-    {
       "Identity": "D:\\Github\\ASP.NET-Portfolio-Site\\PatrickWare\\wwwroot\\ProjectImages\\download.jfif",
       "SourceId": "PatrickWare",
       "SourceType": "Discovered",
@@ -2371,6 +2352,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\ProjectImages\\download.jfif"
+    },
+    {
+      "Identity": "D:\\Github\\ASP.NET-Portfolio-Site\\PatrickWare\\wwwroot\\ProjectImages\\IgnatiusBW.png",
+      "SourceId": "PatrickWare",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\Github\\ASP.NET-Portfolio-Site\\PatrickWare\\wwwroot\\",
+      "BasePath": "_content/PatrickWare",
+      "RelativePath": "ProjectImages/IgnatiusBW.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\ProjectImages\\IgnatiusBW.png"
     },
     {
       "Identity": "D:\\Github\\ASP.NET-Portfolio-Site\\PatrickWare\\wwwroot\\ProjectImages\\IMG_5071.JPG",

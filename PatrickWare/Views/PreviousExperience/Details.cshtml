@@ -4,75 +4,19 @@
     ViewData["Title"] = "Details";
 }
 
-<h1>Details</h1>
 
 <div>
-    <h4>PreviousExperience</h4>
-    <hr />
-    <dl class="row">
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.ProjectTitle)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.ProjectTitle)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.ShortProjectDescription)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.ShortProjectDescription)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.ProjectDescription)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.ProjectDescription)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.ProjectPurpose)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.ProjectPurpose)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.ProjectImageFileName)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.ProjectImageFileName)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.DevLanguages)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.DevLanguages)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.GitRepoLink)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.GitRepoLink)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.roundedBorder)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.roundedBorder)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.ImageWidth)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.ImageWidth)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.ImageHeight)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.ImageHeight)
-        </dd>
-    </dl>
+   <Center>
+    <h4>
+        @Html.DisplayFor(model => model.ProjectTitle)
+        </h4>
+
+        <img src="/ProjectImages/@Model.ProjectImageFileName" alt="Project Image" class="img-fluid">
+
+        <p> @Model.ProjectDescription</p>
+  </Center>
 </div>
 <div>
-    <a asp-action="Edit" asp-route-id="@Model?.ProjectID">Edit</a> |
-    <a asp-action="Index">Back to List</a>
+    <a asp-action="Edit" class="btn btn-primary buttons-100"  asp-route-id="@Model?.ProjectID">Edit</a> |
+    <a asp-action="Index" class="btn btn-primary buttons-100">Back to List</a>
 </div>
