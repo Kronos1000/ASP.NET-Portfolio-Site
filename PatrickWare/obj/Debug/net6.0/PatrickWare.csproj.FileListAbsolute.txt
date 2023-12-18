@@ -571,3 +571,6 @@ D:\Github\ASP.NET-Portfolio-Site\PatrickWare\obj\Debug\net6.0\refint\PatrickWare
 D:\Github\ASP.NET-Portfolio-Site\PatrickWare\obj\Debug\net6.0\PatrickWare.pdb
 D:\Github\ASP.NET-Portfolio-Site\PatrickWare\obj\Debug\net6.0\PatrickWare.genruntimeconfig.cache
 D:\Github\ASP.NET-Portfolio-Site\PatrickWare\obj\Debug\net6.0\ref\PatrickWare.dll
+D:\Github\ASP.NET-Portfolio-Site\PatrickWare\bin\Debug\net6.0\MailKit.dll
+D:\Github\ASP.NET-Portfolio-Site\PatrickWare\bin\Debug\net6.0\MimeKit.dll
+D:\Github\ASP.NET-Portfolio-Site\PatrickWare\bin\Debug\net6.0\BouncyCastle.Crypto.dll

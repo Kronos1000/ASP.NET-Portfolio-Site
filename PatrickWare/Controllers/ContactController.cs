@@ -1,163 +1,105 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using PatrickWare.Models;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.Rendering;
-using Microsoft.EntityFrameworkCore;
-using PatrickWare.Data;
+using Microsoft.Extensions.Logging;
+using System.Diagnostics;
+using Microsoft.AspNetCore.Authorization;
+using System.Threading.Tasks;
+using MailKit.Net.Smtp;
+using MimeKit;
+using System.Net.Mail;
+using SmtpClient = System.Net.Mail.SmtpClient;
 using PatrickWare.Models;
 
-namespace PatrickWare.Controllers
+namespace Catlins_Honey_NZ.Controllers
 {
     public class ContactController : Controller
     {
-        private readonly ApplicationDbContext _context;
+        private readonly ILogger<ContactController> _logger;
 
-        public ContactController(ApplicationDbContext context)
+        public ContactController(ILogger<ContactController> logger)
         {
-            _context = context;
+            _logger = logger;
         }
 
-        // GET: Contact
-        public async Task<IActionResult> Index()
-        {
-              return _context.Contact != null ? 
-                          View(await _context.Contact.ToListAsync()) :
-                          Problem("Entity set 'ApplicationDbContext.Contact'  is null.");
-        }
-
-        // GET: Contact/Details/5
-        public async Task<IActionResult> Details(int? id)
-        {
-            if (id == null || _context.Contact == null)
-            {
-                return NotFound();
-            }
-
-            var contact = await _context.Contact
-                .FirstOrDefaultAsync(m => m.ContactID == id);
-            if (contact == null)
-            {
-                return NotFound();
-            }
-
-            return View(contact);
-        }
-
-        // GET: Contact/Create
-        public IActionResult Create()
+        public IActionResult Index()
         {
             return View();
         }
 
-        // POST: Contact/Create
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("ContactID,ContactName,ContactEmail,Subject,Message")] Contact contact)
+        public IActionResult SendMessage(UserMessage model)
         {
-            if (ModelState.IsValid)
+            if (!ModelState.IsValid)
             {
-                _context.Add(contact);
-                await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
+                return View("Index", model);
             }
-            return View(contact);
+
+            try
+            {
+                SendEmail(model);
+                // Store success message in TempData
+                TempData["SuccessMessage"] = "Email sent successfully!";
+                return RedirectToAction("Index");
+            }
+            catch (Exception ex)
+            {
+                // Handle any exceptions or errors during sending
+                _logger.LogError(ex, "Error while sending email.");
+                TempData["ErrorMessage"] = "Failed to send email. Please try again later.";
+                return RedirectToAction("Index");
+            }
         }
 
-        // GET: Contact/Edit/5
-        public async Task<IActionResult> Edit(int? id)
+
+        public RedirectToActionResult SendEmail(UserMessage model)
         {
-            if (id == null || _context.Contact == null)
-            {
-                return NotFound();
-            }
+            string fromEmail = "Catlinshoney9874@outlook.com"; // this will be address that the form will use to send email 
 
-            var contact = await _context.Contact.FindAsync(id);
-            if (contact == null)
-            {
-                return NotFound();
-            }
-            return View(contact);
-        }
+            string toEmail = "Catlinshoney9874@outlook.com"; // change the address of the current email 
+            string subject = model.Subject;
+            ////string body = model.Message;
 
-        // POST: Contact/Edit/5
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("ContactID,ContactName,ContactEmail,Subject,Message")] Contact contact)
-        {
-            if (id != contact.ContactID)
-            {
-                return NotFound();
-            }
+            string body = $"Customer Name: {model.Name}\nCustomer Email: {model.Email}\n\n{model.Message}";
 
-            if (ModelState.IsValid)
+            // Create the MailMessage object
+            MailMessage message = new MailMessage(fromEmail, toEmail, subject, body);
+
+            // Configure the SMTP client
+            using (SmtpClient smtpClient = new SmtpClient("smtp.office365.com", 587))
             {
+                // Set the credentials for authentication
+                smtpClient.Credentials = new System.Net.NetworkCredential("Catlinshoney9874@outlook.com", "Password1234%^");
+
+                // Enable SSL encryption (required for most email providers)
+                smtpClient.EnableSsl = true;
+
                 try
                 {
-                    _context.Update(contact);
-                    await _context.SaveChangesAsync();
+                    // Send the email
+                    smtpClient.Send(message);
+
+                    TempData["SuccessMessage"] = "Message Sent Successfully";
+                    _logger.LogInformation("Email sent successfully.");
+
+
                 }
-                catch (DbUpdateConcurrencyException)
+                catch (Exception ex)
                 {
-                    if (!ContactExists(contact.ContactID))
-                    {
-                        return NotFound();
-                    }
-                    else
-                    {
-                        throw;
-                    }
+                    _logger.LogError(ex, "Failed to send email.");
+                    TempData["ErrorMessage"] = "Failed to send email. Please try again later.";
+                    throw; // Rethrow the exception to be caught in the SendMessage() method.
                 }
-                return RedirectToAction(nameof(Index));
             }
-            return View(contact);
+            return RedirectToAction("Index");
         }
 
-        // GET: Contact/Delete/5
-        public async Task<IActionResult> Delete(int? id)
+        // Other actions as before
+
+        [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
+        public IActionResult Error()
         {
-            if (id == null || _context.Contact == null)
-            {
-                return NotFound();
-            }
-
-            var contact = await _context.Contact
-                .FirstOrDefaultAsync(m => m.ContactID == id);
-            if (contact == null)
-            {
-                return NotFound();
-            }
-
-            return View(contact);
-        }
-
-        // POST: Contact/Delete/5
-        [HttpPost, ActionName("Delete")]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> DeleteConfirmed(int id)
-        {
-            if (_context.Contact == null)
-            {
-                return Problem("Entity set 'ApplicationDbContext.Contact'  is null.");
-            }
-            var contact = await _context.Contact.FindAsync(id);
-            if (contact != null)
-            {
-                _context.Contact.Remove(contact);
-            }
-            
-            await _context.SaveChangesAsync();
-            return RedirectToAction(nameof(Index));
-        }
-
-        private bool ContactExists(int id)
-        {
-          return (_context.Contact?.Any(e => e.ContactID == id)).GetValueOrDefault();
+            return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
     }
 }

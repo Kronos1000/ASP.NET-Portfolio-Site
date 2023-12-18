@@ -5,6 +5,14 @@
       "PackagePath": "staticwebassets\\PatrickWare.bundle.scp.css"
     },
     {
+      "Id": "D:\\Github\\ASP.NET-Portfolio-Site\\PatrickWare\\wwwroot\\ProjectImages\\IMG_5071.JPG",
+      "PackagePath": "staticwebassets\\ProjectImages\\IMG_5071.JPG"
+    },
+    {
+      "Id": "D:\\Github\\ASP.NET-Portfolio-Site\\PatrickWare\\wwwroot\\ProjectImages\\IMG_6603_edit_dark.jpg",
+      "PackagePath": "staticwebassets\\ProjectImages\\IMG_6603_edit_dark.jpg"
+    },
+    {
       "Id": "D:\\Github\\ASP.NET-Portfolio-Site\\PatrickWare\\wwwroot\\ProjectImages\\SIT Wallpaper.png",
       "PackagePath": "staticwebassets\\ProjectImages\\SIT Wallpaper.png"
     },
