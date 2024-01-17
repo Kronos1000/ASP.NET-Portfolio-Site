@@ -4,25 +4,55 @@
     ViewData["Title"] = "Details";
 }
 
+<style>
+    .container {
+        display: flex;
+        flex-direction: column; /* Stack items vertically on small screens */
+        align-items: center;
+        text-align: left;
+    }
 
-<div>
-   <Center>
-    <h4>
-        @Html.DisplayFor(model => model.ProjectTitle)
-        </h4>
+    .text {
+        margin-bottom: 20px; /* Add space between text and image on small screens */
+        white-space: pre-line;
+    }
 
-        <img src="/ProjectImages/@Model.ProjectImageFileName" alt="Project Image" class="img-fluid">
+    .image {
+        max-width: 100%; /* Ensure the image doesn't exceed its container */
+        overflow: hidden; /* Hide any overflow beyond the container */
+    }
 
+    /* Media query for small screens */
+    .media (min-width: 768px) {
+        .container {
+            flex-direction: row; /* Display items side by side on larger screens */
+      /*       justify-content: space-between; */
+        }
 
+        .text {
+            margin-bottom: 0; /* Reset margin for larger screens */
+        }
+    }
+</style>
 
-        <p> @Model.ProjectDescription</p>
-  </Center>
+<div class="container">
+    <div class="text col-md-6">
+        <!-- Use col-md-6 to make it half-width on medium and larger screens -->
+        <h3>
+            @Html.DisplayFor(model => model.ProjectTitle)
+        </h3>
+        <p>@Model.ProjectDescription</p>
+
+    </div>
+
+    <div class="image col-lg-5">
+        <!-- Use col-md-6 to make it half-width on medium and larger screens -->
+        <img src="/ProjectImages/@Model.ProjectImageFileName" alt="Missing Image" class="img-fluid mx-auto d-block" style="width: 100%; height: 100%; object-fit: cover; border-radius: 5px;" />
+    </div>
 </div>
-<div>
-    <a asp-action="Edit" class="btn btn-primary buttons-100"  asp-route-id="@Model?.ProjectID">Edit</a> |
-    <a asp-action="Index" class="btn btn-primary buttons-100">Back to List</a>
 
 
-
-
-</div>
+        <div>
+            <a asp-action="Edit" class="btn btn-primary buttons-100" asp-route-id="@Model?.ProjectID">Edit</a> |
+            <a asp-action="Index" class="btn btn-primary buttons-100">Back to List</a>
+        </div> 

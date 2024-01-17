@@ -87,7 +87,8 @@ namespace PatrickWare.Controllers
                         previousExperience.ImageHeight = image.Height;
                     }
                 }
-
+                
+                previousExperience.ProjectDescription = Regex.Replace(previousExperience.ProjectDescription, @"(\r\n?|\n){2,}", "\n\n\n");
                 _context.Add(previousExperience);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
