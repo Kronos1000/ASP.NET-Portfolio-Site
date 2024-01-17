@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "aNqb8ZO8VC/ZgzW3BYYdJfDXC6p+ftk41zkLL0kYQ4M=",
+  "Hash": "lKF6VKYho7M83YjH0v5++7Jvo5ZPicamlZCwjotw0J0=",
   "Source": "PatrickWare",
   "BasePath": "_content/PatrickWare",
   "Mode": "Default",
@@ -2333,6 +2333,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\lib\\jquery-validation-unobtrusive\\LICENSE.txt"
+    },
+    {
+      "Identity": "D:\\Github\\ASP.NET-Portfolio-Site\\PatrickWare\\wwwroot\\ProjectImages\\20231208_160710 EDIT.jpg",
+      "SourceId": "PatrickWare",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\Github\\ASP.NET-Portfolio-Site\\PatrickWare\\wwwroot\\",
+      "BasePath": "_content/PatrickWare",
+      "RelativePath": "ProjectImages/20231208_160710 EDIT.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\ProjectImages\\20231208_160710 EDIT.jpg"
     },
     {
       "Identity": "D:\\Github\\ASP.NET-Portfolio-Site\\PatrickWare\\wwwroot\\ProjectImages\\download.jfif",

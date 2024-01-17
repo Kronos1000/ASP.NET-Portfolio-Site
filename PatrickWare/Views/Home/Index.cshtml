@@ -4,12 +4,19 @@
 @model IEnumerable<PatrickWare.Models.About>
 <style>
     .text-paragraph {
-        max-width: 100%;
+        text-align: left;
         white-space: pre-line; /* Preserve spaces and line breaks */
+       
     }
 
+        .text-paragraph img {
+            float: left;
+/*             margin-right: 15px; /* Adjust margin as needed */ */
+        }
+
     .pageData {
-        text-align: center;
+        text-align: left;
+            white-space: pre-line; /* Preserve spaces and line breaks */
         padding: 20px;
     }
 </style>
@@ -17,12 +24,7 @@
 @foreach (var item in Model)
 {
     <div class="container">
-        @if (User.Identity.IsAuthenticated && User.IsInRole("Admin"))
-        {
-            <br />
-            <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-primary buttons-100">Edit Page Content</a>
-            <a asp-action="Delete" asp-route-id="@item.Id" class="btn btn-danger" style="width:100%">Erase landing page image</a>
-        }
+ 
         <div class="pageData"></div>
         <div class="row">
             @if (item.Headings != null)
@@ -46,11 +48,13 @@
 
                             @if (item.ImageWidth <= item.ImageHeight)
                             {
-                                <img src="/ProjectImages/@item.ImageFileName" alt="Missing Image" class="img-fluid rounded-circle mx-auto d-block" style="width: 400px; height: 400px;" />
+                                <img src="/ProjectImages/@item.ImageFileName" alt="Missing Image" class="img-fluid mx-auto d-block" style="width: 400px; height: 450px; object-fit: cover; border-radius: 5px;" />
+
                             }
+
                             else if (item.ImageWidth >= item.ImageHeight)
                             {
-                                <img src="/ProjectImages/@item.ImageFileName" alt="Missing Image" class="img-fluid rounded-circle mx-auto d-block" style="width: 400px; height: 400px;" />
+                                <img src="/ProjectImages/@item.ImageFileName" alt="Missing Image" class="img-fluid rounded-circle mx-auto d-block" style="width: 600px; height: 800px;" />
                             }
                             else if (item.ImageWidth == item.ImageHeight) // Square image
                             {
@@ -66,7 +70,7 @@
 
                             @if (item.ImageWidth <= item.ImageHeight)
                             {
-                                <img src="/ProjectImages/@item.ImageFileName" alt="Missing Image" class="img-fluid rounded  mx-auto d-block" style="width: 200px; height: 200px;" />
+                                <img src="/ProjectImages/@item.ImageFileName" alt="Missing Image" class="img-fluid rounded  mx-auto d-block" style="width: 400px; height: 400px;" />
                             }
                             else if (item.ImageWidth >= item.ImageHeight)
                             {
@@ -88,8 +92,8 @@
 
             @if (item.ImageFileName != null)
             {
-                <div class="col-md-6" style="padding-inline-start: 20px">
-                    <br />
+                <div class="col-lg-5" @* style="padding-inline-start: 10px "*@>
+                    <br/>
                     <center>
                         <p class="text-paragraph" style="max-width: @item.ImageWidth > item.ImageHeight ? '100%' : 'initial';">@item.Description </p>
                         <br />

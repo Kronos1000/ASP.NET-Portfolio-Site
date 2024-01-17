@@ -9,16 +9,19 @@ using System.Drawing;
 using PatrickWare.Data;
 using PatrickWare.Models;
 using System.Text.RegularExpressions;
+using Microsoft.AspNetCore.Hosting;
 
 namespace PatrickWare.Controllers
 {
     public class AboutController : Controller
     {
         private readonly ApplicationDbContext _context;
+        private readonly IWebHostEnvironment _webHostEnvironment;
 
-        public AboutController(ApplicationDbContext context)
+        public AboutController(ApplicationDbContext context, IWebHostEnvironment webHostEnvironment)
         {
             _context = context;
+            _webHostEnvironment = webHostEnvironment;
         }
 
         // GET: About
@@ -113,8 +116,15 @@ namespace PatrickWare.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,Headings,Description,ImageFileName,roundedBorder,ImageWidth,ImageHeight")] About about)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,Headings,Description,ImageFileName,roundedBorder,ImageWidth,ImageHeight")] About about,IFormFile? imageFile)
+        
         {
+            var existingInformation = await _context.About.AsNoTracking().FirstOrDefaultAsync(a => a.Id == id);
+
+      
+            about.ImageFileName = existingInformation.ImageFileName;
+            about.ImageWidth = existingInformation.ImageWidth;
+            about.ImageHeight = existingInformation.ImageHeight;
             if (id != about.Id)
             {
                 return NotFound();
@@ -124,6 +134,33 @@ namespace PatrickWare.Controllers
             {
                 try
                 {
+
+
+                    if (imageFile != null && imageFile.Length > 0)
+                    {
+                        var fileName = Path.GetFileName(imageFile.FileName);
+                        var filePath = Path.Combine(_webHostEnvironment.WebRootPath, "ProjectImages", fileName);
+
+                        using (var stream = new FileStream(filePath, FileMode.Create))
+                        {
+                            await imageFile.CopyToAsync(stream);
+                        }
+                        about.ImageFileName = fileName;
+                        existingInformation.ImageFileName = fileName;
+
+                        // Make sure to dispose of the FileStream before attempting to read the image
+                        using (var imageStream = new FileStream(filePath, FileMode.Open, FileAccess.Read))
+                        using (var image = Image.FromStream(imageStream))
+                        {
+                            about.ImageWidth = image.Width;
+                            about.ImageHeight = image.Height;
+                        }
+                    }
+
+                    about.Description = Regex.Replace(about.Description, @"(\r\n?|\n){2,}", "\n\n\n");
+                    
+
+
                     _context.Update(about);
                     await _context.SaveChangesAsync();
                 }
