@@ -40,7 +40,7 @@
 
 
             <label> Upload Image</label>
-            <br />
+          
             <span style="font-size: smaller;"> *Required</span>
 
             <br />
@@ -48,12 +48,89 @@
                 <input type="file" name="ProjectImageFile" class="form-control-file" />
                 <br />
             </div>
+            <!-- Gallery Images-->
+            <label> Gallery Image 1 </label>
 
             <div class="form-group">
+                <input type="file" name="GalleryImage1" class="form-control-file" />
+                <br />
+
+            </div>
+
+            <label> Gallery Image 2 </label>
+
+            <div class="form-group">
+                <input type="file" name="GalleryImage2" class="form-control-file" />
+                <br />
+
+            </div>
+
+
+            <label> Gallery Image 3 </label>
+
+            <div class="form-group">
+                <input type="file" name="GalleryImage3" class="form-control-file" />
+                <br />
+
+            </div>
+
+
+
+            <label> Gallery Image 4 </label>
+
+            <div class="form-group">
+                <input type="file" name="GalleryImage4" class="form-control-file" />
+                <br />
+
+            </div>
+
+
+            <label> Gallery Image 5 </label>
+
+            <div class="form-group">
+                <input type="file" name="GalleryImage5" class="form-control-file" />
+                <br />
+
+                <!--Gallery End -->
+                <!-- Image File Names-->
+            <div class="form-group" hidden>
                 <label asp-for="ProjectImageFileName" class="control-label"></label>
                 <input asp-for="ProjectImageFileName" class="form-control" />
                 <span asp-validation-for="ProjectImageFileName" class="text-danger"></span>
             </div>
+
+                <div class="form-group" hidden>
+                    <label asp-for="GalleryImage1FileName" class="control-label"></label>
+                    <input asp-for="GalleryImage1FileName" class="form-control" />
+                    <span asp-validation-for="GalleryImage1FileName" class="text-danger"></span>
+                </div>
+
+                <div class="form-group" hidden>
+                    <label asp-for="GalleryImage2FileName" class="control-label"></label>
+                    <input asp-for="GalleryImage2FileName" class="form-control" />
+                    <span asp-validation-for="GalleryImage2FileName" class="text-danger"></span>
+                </div>
+
+                <div class="form-group" hidden>
+                    <label asp-for="GalleryImage3FileName" class="control-label"></label>
+                    <input asp-for="GalleryImage3FileName" class="form-control" />
+                    <span asp-validation-for="GalleryImage3FileName" class="text-danger"></span>
+                </div>
+
+                <div class="form-group" hidden>
+                    <label asp-for="GalleryImage4FileName" class="control-label"></label>
+                    <input asp-for="GalleryImage4FileName" class="form-control" />
+                    <span asp-validation-for="GalleryImage4FileName" class="text-danger"></span>
+                </div>
+
+                <div class="form-group" hidden>
+                    <label asp-for="GalleryImage5FileName" class="control-label"></label>
+                    <input asp-for="GalleryImage5FileName" class="form-control" />
+                    <span asp-validation-for="GalleryImage5FileName" class="text-danger"></span>
+                </div>
+
+
+
             <div class="form-group">
                 <label asp-for="DevLanguages" class="control-label"></label>
                 <input asp-for="DevLanguages" class="form-control" />

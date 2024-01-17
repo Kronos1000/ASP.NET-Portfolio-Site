@@ -5,6 +5,10 @@
       "PackagePath": "staticwebassets\\PatrickWare.bundle.scp.css"
     },
     {
+      "Id": "D:\\Github\\ASP.NET-Portfolio-Site\\PatrickWare\\wwwroot\\ProjectImages\\1.png",
+      "PackagePath": "staticwebassets\\ProjectImages\\1.png"
+    },
+    {
       "Id": "D:\\Github\\ASP.NET-Portfolio-Site\\PatrickWare\\wwwroot\\ProjectImages\\20231208_160710 EDIT.jpg",
       "PackagePath": "staticwebassets\\ProjectImages\\20231208_160710 EDIT.jpg"
     },
@@ -25,8 +29,20 @@
       "PackagePath": "staticwebassets\\ProjectImages\\IgnatiusBW.png"
     },
     {
+      "Id": "D:\\Github\\ASP.NET-Portfolio-Site\\PatrickWare\\wwwroot\\ProjectImages\\MPHSAM0313500DM__1.jpg",
+      "PackagePath": "staticwebassets\\ProjectImages\\MPHSAM0313500DM__1.jpg"
+    },
+    {
+      "Id": "D:\\Github\\ASP.NET-Portfolio-Site\\PatrickWare\\wwwroot\\ProjectImages\\MPHSAM0313500DM__5.jpg",
+      "PackagePath": "staticwebassets\\ProjectImages\\MPHSAM0313500DM__5.jpg"
+    },
+    {
       "Id": "D:\\Github\\ASP.NET-Portfolio-Site\\PatrickWare\\wwwroot\\ProjectImages\\Patrick.png",
       "PackagePath": "staticwebassets\\ProjectImages\\Patrick.png"
+    },
+    {
+      "Id": "D:\\Github\\ASP.NET-Portfolio-Site\\PatrickWare\\wwwroot\\ProjectImages\\Picture1.png",
+      "PackagePath": "staticwebassets\\ProjectImages\\Picture1.png"
     },
     {
       "Id": "D:\\Github\\ASP.NET-Portfolio-Site\\PatrickWare\\wwwroot\\ProjectImages\\SIT Wallpaper.png",
@@ -37,8 +53,56 @@
       "PackagePath": "staticwebassets\\ProjectImages\\Sequence 02.Still001.bmp"
     },
     {
+      "Id": "D:\\Github\\ASP.NET-Portfolio-Site\\PatrickWare\\wwwroot\\ProjectImages\\cat 4.PNG",
+      "PackagePath": "staticwebassets\\ProjectImages\\cat 4.PNG"
+    },
+    {
+      "Id": "D:\\Github\\ASP.NET-Portfolio-Site\\PatrickWare\\wwwroot\\ProjectImages\\cat1.PNG",
+      "PackagePath": "staticwebassets\\ProjectImages\\cat1.PNG"
+    },
+    {
+      "Id": "D:\\Github\\ASP.NET-Portfolio-Site\\PatrickWare\\wwwroot\\ProjectImages\\cat2.PNG",
+      "PackagePath": "staticwebassets\\ProjectImages\\cat2.PNG"
+    },
+    {
+      "Id": "D:\\Github\\ASP.NET-Portfolio-Site\\PatrickWare\\wwwroot\\ProjectImages\\cat3.PNG",
+      "PackagePath": "staticwebassets\\ProjectImages\\cat3.PNG"
+    },
+    {
+      "Id": "D:\\Github\\ASP.NET-Portfolio-Site\\PatrickWare\\wwwroot\\ProjectImages\\cat5.PNG",
+      "PackagePath": "staticwebassets\\ProjectImages\\cat5.PNG"
+    },
+    {
+      "Id": "D:\\Github\\ASP.NET-Portfolio-Site\\PatrickWare\\wwwroot\\ProjectImages\\demo.jpg",
+      "PackagePath": "staticwebassets\\ProjectImages\\demo.jpg"
+    },
+    {
       "Id": "D:\\Github\\ASP.NET-Portfolio-Site\\PatrickWare\\wwwroot\\ProjectImages\\download.jfif",
       "PackagePath": "staticwebassets\\ProjectImages\\download.jfif"
+    },
+    {
+      "Id": "D:\\Github\\ASP.NET-Portfolio-Site\\PatrickWare\\wwwroot\\ProjectImages\\icon cat.PNG",
+      "PackagePath": "staticwebassets\\ProjectImages\\icon cat.PNG"
+    },
+    {
+      "Id": "D:\\Github\\ASP.NET-Portfolio-Site\\PatrickWare\\wwwroot\\ProjectImages\\ign1.jpg",
+      "PackagePath": "staticwebassets\\ProjectImages\\ign1.jpg"
+    },
+    {
+      "Id": "D:\\Github\\ASP.NET-Portfolio-Site\\PatrickWare\\wwwroot\\ProjectImages\\ign2.jpg",
+      "PackagePath": "staticwebassets\\ProjectImages\\ign2.jpg"
+    },
+    {
+      "Id": "D:\\Github\\ASP.NET-Portfolio-Site\\PatrickWare\\wwwroot\\ProjectImages\\ign3.jpg",
+      "PackagePath": "staticwebassets\\ProjectImages\\ign3.jpg"
+    },
+    {
+      "Id": "D:\\Github\\ASP.NET-Portfolio-Site\\PatrickWare\\wwwroot\\ProjectImages\\ign4.jpg",
+      "PackagePath": "staticwebassets\\ProjectImages\\ign4.jpg"
+    },
+    {
+      "Id": "D:\\Github\\ASP.NET-Portfolio-Site\\PatrickWare\\wwwroot\\ProjectImages\\ign5.jpg",
+      "PackagePath": "staticwebassets\\ProjectImages\\ign5.jpg"
     },
     {
       "Id": "D:\\Github\\ASP.NET-Portfolio-Site\\PatrickWare\\wwwroot\\ProjectImages\\patrick17Github.png",

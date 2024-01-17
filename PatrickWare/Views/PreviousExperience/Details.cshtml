@@ -12,6 +12,17 @@
         text-align: left;
     }
 
+    .scroll-container {
+        overflow-x: auto;
+        white-space: nowrap;
+        display: flex;
+    }
+
+        .scroll-container img {
+            flex: 0 0 auto;
+            margin-right: 10px; /* Optional: Add space between images */
+        }
+
     .text {
         margin-bottom: 20px; /* Add space between text and image on small screens */
         white-space: pre-line;
@@ -24,14 +35,17 @@
 
     /* Media query for small screens */
     .media (min-width: 768px) {
-        .container {
-            flex-direction: row; /* Display items side by side on larger screens */
-      /*       justify-content: space-between; */
-        }
+        .container
 
-        .text {
-            margin-bottom: 0; /* Reset margin for larger screens */
-        }
+    {
+        flex-direction: row; /* Display items side by side on larger screens */
+        /*       justify-content: space-between; */
+    }
+
+    .text {
+        margin-bottom: 0; /* Reset margin for larger screens */
+    }
+
     }
 </style>
 
@@ -47,12 +61,37 @@
 
     <div class="image col-lg-5">
         <!-- Use col-md-6 to make it half-width on medium and larger screens -->
-        <img src="/ProjectImages/@Model.ProjectImageFileName" alt="Missing Image" class="img-fluid mx-auto d-block" style="width: 100%; height: 100%; object-fit: cover; border-radius: 5px;" />
+        @*   <img src="/ProjectImages/@Model.ProjectImageFileName" alt="Missing Image" class="img-fluid mx-auto d-block" style="width: 100%; height: 100%; object-fit: cover; border-radius: 5px;" /> *@
+
+
+
+        <div class="scroll-container">
+
+            @if (Model.GalleryImage1FileName != null)
+            {
+                <img src="/ProjectImages/@Model.GalleryImage1FileName" alt="Project Image" class="img-fluid" style="width: 70%; height: 30%; object-fit: cover; border-radius: 5px;">
+            }
+
+            @if (Model.GalleryImage2FileName != null)
+            {
+                <img src="/ProjectImages/@Model.GalleryImage2FileName" alt="Project Image" class="img-fluid" style="width: 70%; height: 30%; object-fit: cover; border-radius: 5px;">
+            }
+
+            @if (Model.GalleryImage3FileName != null)
+            {
+                <img src="/ProjectImages/@Model.GalleryImage3FileName" alt="Project Image" class="img-fluid" style="width: 70%; height: 30%; object-fit: cover; border-radius: 5px;">
+            }
+            @if (Model.GalleryImage4FileName != null)
+            {
+                <img src="/ProjectImages/@Model.GalleryImage4FileName" alt="Project Image" class="img-fluid" style="width: 70%; height: 30%; object-fit: cover; border-radius: 5px;">
+            }
+            @if (Model.GalleryImage5FileName != null)
+            {
+                <img src="/ProjectImages/@Model.GalleryImage5FileName" alt="Project Image" class="img-fluid" style="width: 70%; height: 30%; object-fit: cover; border-radius: 5px;">
+            }
+        </div>
     </div>
-</div>
-
-
-        <div>
-            <a asp-action="Edit" class="btn btn-primary buttons-100" asp-route-id="@Model?.ProjectID">Edit</a> |
-            <a asp-action="Index" class="btn btn-primary buttons-100">Back to List</a>
-        </div> 
+    @*  <div>
+    <a asp-action="Edit" class="btn btn-primary buttons-100" asp-route-id="@Model?.ProjectID">Edit</a> |
+    <a asp-action="Index" class="btn btn-primary buttons-100">Back to List</a>
+    </div>  *@

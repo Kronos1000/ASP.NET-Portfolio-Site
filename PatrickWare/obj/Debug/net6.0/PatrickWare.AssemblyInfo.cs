@@ -16,7 +16,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("PatrickWare")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+352b662fe57173cb9979c406f653435034d44348")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+3f2d03e92d861bbb983c0f0f1077351e06b8a722")]
 [assembly: System.Reflection.AssemblyProductAttribute("PatrickWare")]
 [assembly: System.Reflection.AssemblyTitleAttribute("PatrickWare")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

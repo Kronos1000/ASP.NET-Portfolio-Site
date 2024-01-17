@@ -24,13 +24,34 @@ namespace PatrickWare.Models
         [NotMapped]
         public IFormFile? ProjectImageFile { get; set; }
         public string? DevLanguages { get; set; }
-        public string? GitRepoLink { get; set; }
-        public bool? roundedBorder { get; set; }
 
         public int? ImageWidth { get; set; }
         public int? ImageHeight { get; set; }
 
-        
+
+        public string? GitRepoLink { get; set; }
+        public bool? roundedBorder { get; set; }
+
+        [NotMapped]
+        public IFormFile? GalleryImage1 { get; set; }
+        public string? GalleryImage1FileName { get; set; }
+
+        [NotMapped]
+        public IFormFile? GalleryImage2 { get; set; }
+        public string? GalleryImage2FileName { get; set; }
+        [NotMapped]
+        public IFormFile? GalleryImage3 { get; set; }
+        public string? GalleryImage3FileName { get; set; }
+
+        [NotMapped]
+        public IFormFile? GalleryImage4 { get; set; }
+        public string? GalleryImage4FileName { get; set; }
+
+        [NotMapped]
+        public IFormFile? GalleryImage5 { get; set; }
+        public string? GalleryImage5FileName { get; set; }
+
+
 
     }
 }
