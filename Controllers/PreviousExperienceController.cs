@@ -210,6 +210,17 @@ namespace PatrickWare.Controllers
                 // _context.Entry(existingExperience).CurrentValues.SetValues(previousExperience);
 
 
+
+                // Update existingExperience properties directly
+                existingExperience.ProjectTitle = previousExperience.ProjectTitle;
+                existingExperience.ShortProjectDescription = previousExperience.ShortProjectDescription;
+                existingExperience.ProjectDescription = previousExperience.ProjectDescription;
+                existingExperience.ProjectPurpose = previousExperience.ProjectPurpose;
+                existingExperience.DevLanguages = previousExperience.DevLanguages;
+                existingExperience.GitRepoLink = previousExperience.GitRepoLink;
+                existingExperience.roundedBorder = previousExperience.roundedBorder;
+
+
                 if (ProjectImageFile != null && ProjectImageFile.Length > 0)
                 {
                     var fileName = System.IO.Path.GetFileName(ProjectImageFile.FileName);

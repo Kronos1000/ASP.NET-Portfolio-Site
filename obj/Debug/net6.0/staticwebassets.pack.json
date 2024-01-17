@@ -9,8 +9,16 @@
       "PackagePath": "staticwebassets\\ProjectImages\\1.png"
     },
     {
+      "Id": "D:\\Github\\ASP.NET-Portfolio-Site\\wwwroot\\ProjectImages\\20231208_160710 EDIT-min.jpg",
+      "PackagePath": "staticwebassets\\ProjectImages\\20231208_160710 EDIT-min.jpg"
+    },
+    {
       "Id": "D:\\Github\\ASP.NET-Portfolio-Site\\wwwroot\\ProjectImages\\20231208_160710 EDIT.jpg",
       "PackagePath": "staticwebassets\\ProjectImages\\20231208_160710 EDIT.jpg"
+    },
+    {
+      "Id": "D:\\Github\\ASP.NET-Portfolio-Site\\wwwroot\\ProjectImages\\20231208_160710.jpg",
+      "PackagePath": "staticwebassets\\ProjectImages\\20231208_160710.jpg"
     },
     {
       "Id": "D:\\Github\\ASP.NET-Portfolio-Site\\wwwroot\\ProjectImages\\IMG_0011.JPG",
@@ -85,16 +93,32 @@
       "PackagePath": "staticwebassets\\ProjectImages\\icon cat.PNG"
     },
     {
+      "Id": "D:\\Github\\ASP.NET-Portfolio-Site\\wwwroot\\ProjectImages\\ign1-min.jpg",
+      "PackagePath": "staticwebassets\\ProjectImages\\ign1-min.jpg"
+    },
+    {
       "Id": "D:\\Github\\ASP.NET-Portfolio-Site\\wwwroot\\ProjectImages\\ign1.jpg",
       "PackagePath": "staticwebassets\\ProjectImages\\ign1.jpg"
+    },
+    {
+      "Id": "D:\\Github\\ASP.NET-Portfolio-Site\\wwwroot\\ProjectImages\\ign2-min.jpg",
+      "PackagePath": "staticwebassets\\ProjectImages\\ign2-min.jpg"
     },
     {
       "Id": "D:\\Github\\ASP.NET-Portfolio-Site\\wwwroot\\ProjectImages\\ign2.jpg",
       "PackagePath": "staticwebassets\\ProjectImages\\ign2.jpg"
     },
     {
+      "Id": "D:\\Github\\ASP.NET-Portfolio-Site\\wwwroot\\ProjectImages\\ign3-min.jpg",
+      "PackagePath": "staticwebassets\\ProjectImages\\ign3-min.jpg"
+    },
+    {
       "Id": "D:\\Github\\ASP.NET-Portfolio-Site\\wwwroot\\ProjectImages\\ign3.jpg",
       "PackagePath": "staticwebassets\\ProjectImages\\ign3.jpg"
+    },
+    {
+      "Id": "D:\\Github\\ASP.NET-Portfolio-Site\\wwwroot\\ProjectImages\\ign4-min.jpg",
+      "PackagePath": "staticwebassets\\ProjectImages\\ign4-min.jpg"
     },
     {
       "Id": "D:\\Github\\ASP.NET-Portfolio-Site\\wwwroot\\ProjectImages\\ign4.jpg",
