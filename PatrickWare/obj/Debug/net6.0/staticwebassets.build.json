@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "A3AVqubL2BTj+7ucjXsGTyeFJqRqtjK5KBn7MVoPiSU=",
+  "Hash": "aNqb8ZO8VC/ZgzW3BYYdJfDXC6p+ftk41zkLL0kYQ4M=",
   "Source": "PatrickWare",
   "BasePath": "_content/PatrickWare",
   "Mode": "Default",
@@ -2371,6 +2371,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\ProjectImages\\IgnatiusBW.png"
+    },
+    {
+      "Identity": "D:\\Github\\ASP.NET-Portfolio-Site\\PatrickWare\\wwwroot\\ProjectImages\\IMG_0011.JPG",
+      "SourceId": "PatrickWare",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\Github\\ASP.NET-Portfolio-Site\\PatrickWare\\wwwroot\\",
+      "BasePath": "_content/PatrickWare",
+      "RelativePath": "ProjectImages/IMG_0011.JPG",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\ProjectImages\\IMG_0011.JPG"
     },
     {
       "Identity": "D:\\Github\\ASP.NET-Portfolio-Site\\PatrickWare\\wwwroot\\ProjectImages\\IMG_5071.JPG",

@@ -10,16 +10,20 @@ using Microsoft.AspNetCore.Http;
 
 using PatrickWare.Data;
 using PatrickWare.Models;
+using Microsoft.AspNetCore.Hosting;
+using System.Text.RegularExpressions;
 
 namespace PatrickWare.Controllers
 {
     public class PreviousExperienceController : Controller
     {
         private readonly ApplicationDbContext _context;
+        private readonly IWebHostEnvironment _webHostEnvironment;
 
-        public PreviousExperienceController(ApplicationDbContext context)
+        public PreviousExperienceController(ApplicationDbContext context, IWebHostEnvironment webHostEnvironment)
         {
             _context = context;
+            _webHostEnvironment = webHostEnvironment;
         }
 
         // GET: PreviousExperience
@@ -65,8 +69,8 @@ namespace PatrickWare.Controllers
             {
                 if (ProjectImageFile != null && ProjectImageFile.Length > 0)
                 {
-                    var fileName = Path.GetFileName(ProjectImageFile.FileName);
-                    var filePath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", "ProjectImages", fileName);
+                    var fileName = System.IO.Path.GetFileName(ProjectImageFile.FileName);
+                    var filePath = System.IO.Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", "ProjectImages", fileName);
 
                     using (var stream = new FileStream(filePath, FileMode.Create))
                     {
@@ -77,7 +81,7 @@ namespace PatrickWare.Controllers
 
                     // Make sure to dispose of the FileStream before attempting to read the image
                     using (var imageStream = new FileStream(filePath, FileMode.Open, FileAccess.Read))
-                    using (var image = Image.FromStream(imageStream))
+                    using (var image = System.Drawing.Image.FromStream(imageStream))
                     {
                         previousExperience.ImageWidth = image.Width;
                         previousExperience.ImageHeight = image.Height;
@@ -114,7 +118,7 @@ namespace PatrickWare.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("ProjectID,ProjectTitle,ShortProjectDescription,ProjectDescription,ProjectPurpose,ProjectImageFileName,DevLanguages,GitRepoLink,roundedBorder,ImageWidth,ImageHeight")] PreviousExperience previousExperience)
+        public async Task<IActionResult> Edit(int id, [Bind("ProjectID,ProjectTitle,ShortProjectDescription,ProjectDescription,ProjectPurpose,ProjectImageFileName,DevLanguages,GitRepoLink,roundedBorder,ImageWidth,ImageHeight")] PreviousExperience previousExperience, IFormFile? ProjectImageFile)
         {
             if (id != previousExperience.ProjectID)
             {
@@ -125,8 +129,44 @@ namespace PatrickWare.Controllers
             {
                 try
                 {
+                    // Retrieve existing portfolio item from the database
+                    var existingPortfolioItem = await _context.PreviousExperience.AsNoTracking().FirstOrDefaultAsync(p => p.ProjectID == id);
+
+                    // Copy the properties from the existing portfolio item to the edited portfolio item
+                    previousExperience.ProjectImageFileName = existingPortfolioItem.ProjectImageFileName; // Assuming you have an ImageUrl property
+                    previousExperience.ImageWidth = existingPortfolioItem.ImageWidth;
+                    previousExperience.ImageHeight = existingPortfolioItem.ImageHeight;
+
+                    // Update other properties with the new values
+                    previousExperience.ProjectDescription = Regex.Replace(previousExperience.ProjectDescription, @"(\r\n?|\n){2,}", "\n\n");
+
+                    // Handle image upload (similar to your existing code)
+                    if (ProjectImageFile != null && ProjectImageFile.Length > 0)
+                    {
+                        var fileName = Path.GetFileName(ProjectImageFile.FileName);
+                        var filePath = Path.Combine(_webHostEnvironment.WebRootPath, "ProjectImages", fileName);
+
+                        using (var stream = new FileStream(filePath, FileMode.Create))
+                        {
+                            await ProjectImageFile.CopyToAsync(stream);
+                        }
+
+                        previousExperience.ProjectImageFileName = fileName;
+
+                        // Make sure to dispose of the FileStream before attempting to read the image
+                        using (var imageStream = new FileStream(filePath, FileMode.Open, FileAccess.Read))
+                        using (var image = Image.FromStream(imageStream))
+                        {
+                            previousExperience.ImageWidth = image.Width;
+                            previousExperience.ImageHeight = image.Height;
+                        }
+                    }
+
+                    // Update portfolio item in the database
                     _context.Update(previousExperience);
                     await _context.SaveChangesAsync();
+
+                    return RedirectToAction(nameof(Index));
                 }
                 catch (DbUpdateConcurrencyException)
                 {
@@ -139,10 +179,22 @@ namespace PatrickWare.Controllers
                         throw;
                     }
                 }
-                return RedirectToAction(nameof(Index));
+                catch (Exception ex)
+                {
+                    // Log the exception and display a user-friendly error message
+                    ModelState.AddModelError(string.Empty, "An error occurred while saving the data.");
+                }
             }
+
             return View(previousExperience);
         }
+
+
+        private bool PreviousExperienceExists(int id)
+        {
+            return _context.PreviousExperience.Any(e => e.ProjectID == id);
+        }
+
 
         // GET: PreviousExperience/Delete/5
         public async Task<IActionResult> Delete(int? id)
@@ -181,9 +233,6 @@ namespace PatrickWare.Controllers
             return RedirectToAction(nameof(Index));
         }
 
-        private bool PreviousExperienceExists(int id)
-        {
-          return (_context.PreviousExperience?.Any(e => e.ProjectID == id)).GetValueOrDefault();
-        }
+       
     }
 }
